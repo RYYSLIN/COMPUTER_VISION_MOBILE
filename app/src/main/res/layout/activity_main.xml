@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".MainActivity">
+
+    <!-- Кнопка для включения/выключения YOLO -->
+    <Button
+        android:id="@+id/buttonEnableYolo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toggle YOLO" />
+
+    <!-- Кнопка для добавления видео -->
+    <Button
+        android:id="@+id/buttonAddVideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Video" />
+
+    <!-- Кнопка для включения/выключения камеры -->
+    <Button
+        android:id="@+id/buttonToggleCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toggle Camera" />
+
+    <!-- Кнопка для загрузки изображения -->
+    <Button
+        android:id="@+id/buttonLoadImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Load Image" />
+
+    <!-- Чекбокс для включения YOLO -->
+    <CheckBox
+        android:id="@+id/checkBoxYolo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable YOLO"
+        android:layout_marginTop="8dp" />
+
+    <!-- FrameLayout для отображения камеры или видео с наложением детекций -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="8dp">
+
+        <!-- Камера или видео -->
+        <androidx.camera.view.PreviewView
+            android:id="@+id/viewFinder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible" />
+
+        <!-- VideoView для отображения видео при выборе -->
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <!-- ImageView для наложения результатов детекций -->
+        <ImageView
+            android:id="@+id/detectionOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent" />
+    </FrameLayout>
+
+    <!-- Прокрутка логов для вывода сообщений -->
+    <ScrollView
+        android:id="@+id/logScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:fillViewport="true"
+        android:background="#E0E0E0"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/textViewLogs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Logs"
+            android:textSize="14sp" />
+    </ScrollView>
+
+</LinearLayout>
